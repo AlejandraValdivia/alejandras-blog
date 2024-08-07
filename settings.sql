@@ -1,0 +1,4 @@
+-- settings.sql
+CREATE DATABASE blogdb;
+CREATE USER alex WITH PASSWORD 'myblog';
+GRANT ALL PRIVILEGES ON DATABASE blogdb TO alex;
