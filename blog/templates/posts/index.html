@@ -1,0 +1,20 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/posts/all-posts.css' %}"/>
+{% endblock %} 
+
+{% block content %}
+<h2 class="post-title">This is the All Posts page</h2>
+<p>lorem impsum lorem impsum lorem impsum lorem impsum lorem impsum lorem impsum</p>
+
+<section id="all-posts">
+  <h2>All Posts</h2>
+  <ul>
+    {% for post in all_posts %}
+      {% include 'post-detail.html' %}
+    {% endfor %}
+  </ul>
+</section>
+
+{% endblock %}

@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,26 +6,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/png" href="" />
-    <title>Cat Collector</title>
-    {% block head %} 
-    {% endblock %}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="semantic/dist/semantic.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"
+    ></script>
+    <script src="semantic/dist/semantic.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="{% static 'images/favicon.ico' %}"
+    />
+
+    <title>Alejandra's Blog</title>
+    {% block head %} {% endblock %}
   </head>
   <body>
     <header>
       <div class="header-logo-container">
-        <h1>Cat Collector</h1>
+        <a href="/">
+          <img class="logo"
+            src="{% static 'images/alejandras-food-blog-beige.png' %}"
+            alt="my-logo"
+          />
+        </a>
+       
       </div>
       <nav>
         <ul>
+          <li><a href="/posts">Posts</a></li>
           <li><a href="/about">About</a></li>
+
         </ul>
       </nav>
     </header>
     <main>
-     {% block content %} 
-     {% endblock %}
-     </main>
+      {% block content %}
+      <h2>Welcome to my blog</h2>
+      {% endblock %}
+    </main>
   </body>
 </html>
-
-    
