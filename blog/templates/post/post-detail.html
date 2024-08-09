@@ -1,0 +1,28 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block title %}
+<h1>{{post.title}}</h1>
+<hr />
+{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'css/post-detail.css' %}" />
+{% endblock %}
+
+{% block content %}
+    {% comment %} <section id="summary">
+        <h2>{{post.title}}</h2>
+        <article>
+             <img src="{% static "images/alejandras-food-blog-beige.png" %}" alt="{{post.title}}" /> 
+            <p>{{post.content}}</p>
+            <p>{{post.date}}</p>
+        </article>
+    </section>
+
+    <main>
+        <p>{{post.excerpt}}</p>
+</main> {% endcomment %}
+
+<p>We are going to post something here</p>
+{% endblock %}

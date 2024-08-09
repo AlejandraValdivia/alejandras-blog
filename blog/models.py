@@ -1,3 +1,4 @@
+import datetime
 from django.db import models
 from pathlib import Path
 
@@ -11,13 +12,15 @@ class Author(models.Model):
     
 
 class Post(models.Model):
-    slug = models.CharField(max_length=255)
-    image = models.CharField(max_length=255)
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    date = models.DateField()
-    title = models.CharField(max_length=255)
-    excerpt = models.TextField()
-    content = models.TextField()
+    slug = models.SlugField(max_length=255)
+    image = models.ImageField(upload_to='images/')
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='posts')
+    date = models.DateField(default=datetime.date.today)
+    title = models.CharField(max_length=255, default='No Title', db_index=True)
+    excerpt = models.TextField(default='No excerpt provided.')
+    content = models.TextField(default='No content provided.')
+    
+    # comments = models.ManyToManyField('Comment', related_name='posts')
     
     
     def __str__(self):
@@ -26,7 +29,7 @@ class Post(models.Model):
 
 class Comment(models.Model):
     content = models.TextField()
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    author = models.ForeignKey(Author, on_delete=models.SET_NULL, related_name='comments', null=True)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     created_at = models.DateTimeField(auto_now_add=True)
     

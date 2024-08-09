@@ -8,7 +8,7 @@ from blog.models import Post, Comment, Author
 all_posts = [
     {
         "slug": "hike-in-the-mountains",
-        "image": "mountains.jpg",
+        "image": "images/kseniia-rastvorova-U2AwijfUNS4-unsplash.jpg",
         "author": "Alejandra Valdivia",
         "date": date(2021, 7, 21),
         "title": "Mountain Hiking",
@@ -75,31 +75,32 @@ def get_date(post):
     return post['date']
 
 def homepage(request):
-    sorted_posts = sorted(all_posts, key=get_date)
-    latest_posts = sorted_posts[-3:]
-    return render(request, 'index.html', {'posts': latest_posts}) 
+    # latests_posts = Post.objects.all().order_by('-date')[:3]
+    # sorted_posts = sorted(all_posts, key=get_date)
+    # latest_posts = sorted_posts[-3:]
+    return render(request, 'home.html', {'posts': posts}) #latests_posts goes here
 
 
 class Post:
-    def __init__(self, title, content, author, created_at, image):
-        self.title = title
-        self.content = content
-        self.author = author
-        self.created_at = created_at
+    def __init__(self, slug, image, author, date, title, excerpt, content):
+        self.slug = slug
         self.image = image
-
+        self.author = author
+        self.date = date
+        self.title = title
+        self.excerpt = excerpt
+        self.content = content
 
     def __str__(self):
         return self.title
 
 
 
-def posts(request):
+def posts(request):  #this is our posts page(might delete the homepage if not needed)
     return render(request, 'posts/index.html', {'all_posts': all_posts})
 
 
 # create PostDetail class here
-
 class PostDetail:
     def __init__(self, title, content, author, created_at, image):
         self.title = title
@@ -113,6 +114,8 @@ class PostDetail:
     
 
 def post_detail(request, slug):
-    identified_post = next(post for post in all_posts if post['slug'] == slug)
+    identified_post = Post.objects.get(slug=slug)
     return render(request, 'blog/post-detail.html', {'post': identified_post})
 
+def error_404_view(request, exception):
+    return render(request, '404.html')

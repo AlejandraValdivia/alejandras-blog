@@ -10,11 +10,15 @@
 
 <section id="all-posts">
   <h2>All Posts</h2>
+  # wrap post in a link to detail page using PrimayKey
   <ul>
     {% for post in all_posts %}
-      {% include 'post-detail.html' %}
+    <li><a href="{% url 'post-detail-page' post.slug %}">{{post.title}}</a></li>
+      
     {% endfor %}
   </ul>
+
+  <h2>We are going to post cool stuff here</h2>
 </section>
 
 {% endblock %}
