@@ -1,0 +1,22 @@
+databases:
+  - name: blogdb
+    plan: free
+    databaseName: blogdb
+    user: alex_user
+
+services:
+  - type: web
+    plan: free
+    name: django-blogdb
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "python -m gunicorn my_blog.asgi:application -k uvicorn.workers.UvicornWorker"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: django_blogdb
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
