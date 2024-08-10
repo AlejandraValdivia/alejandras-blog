@@ -10,8 +10,6 @@ This is a blog by Alejandra Valdivia about her interests such as software engine
 ## Features
 
 - Create, edit, and delete posts
-- Create, edit, and delete comments
-- Filter posts by date, and category
 
 ## Getting Started
 
