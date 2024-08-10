@@ -81,9 +81,5 @@ def post_detail(request, slug):
     identified_post = get_object_or_404(Post, slug=slug)
     return render(request, 'post/post-detail.html', {'post': identified_post})
 
-# def post_detail(request, pk)
-#     post = get_object_or_404(Post, pk=pk)
-#     return render(request, 'post/post-detail.html', {'post': post})
-
 def error_404_view(request, exception):
     return render(request, '404.html')
