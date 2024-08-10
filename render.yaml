@@ -1,20 +1,20 @@
 databases:
-  - name: blogdb
+  - name: my_blog_q4n7
     plan: free
     databaseName: blogdb
-    user: alex_user
+    user: my_blog_q4n7_user
 
 services:
   - type: web
     plan: free
-    name: django-blogdb
+    name: my_blog_q4n7
     runtime: python
     buildCommand: "./build.sh"
     startCommand: "python -m gunicorn my_blog.asgi:application -k uvicorn.workers.UvicornWorker"
     envVars:
-      - key: DATABASE_URL
+      - key: postgresql://my_blog_q4n7_user:uVpliv1vDuZj15KEKGZMuxjh6MnGdmHT@dpg-cqrtvqg8fa8c73daaa6g-a/my_blog_q4n7
         fromDatabase:
-          name: django_blogdb
+          name: my_blog_q4n7
           property: connectionString
       - key: SECRET_KEY
         generateValue: true
