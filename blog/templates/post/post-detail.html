@@ -11,18 +11,19 @@
 {% endblock %}
 
 {% block content %}
-    {% comment %} <section id="summary">
+   <section id="summary">
         <h2>{{post.title}}</h2>
         <article>
-             <img src="{% static "images/alejandras-food-blog-beige.png" %}" alt="{{post.title}}" /> 
+             <img src="{% static "images/"|add:post.image.url %}" alt="{{post.title}}" /> 
+            <p><a href="{% url 'homepage' %}">Back to Home</a></p> <p>{{post.author}}</p>
             <p>{{post.content}}</p>
-            <p>{{post.date}}</p>
+            <p>{{post.date|date:"d M Y"}}</p>
         </article>
     </section>
 
     <main>
         <p>{{post.excerpt}}</p>
-</main> {% endcomment %}
+</main> 
 
 <p>We are going to post something here</p>
 {% endblock %}

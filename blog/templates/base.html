@@ -25,7 +25,7 @@
       href="{% static 'images/favicon.ico' %}"
     />
 
-    <title>Alejandra's Blog</title>
+    <title>{% block title %}{% endblock %}</title>
     {% block head %} {% endblock %}
   </head>
   <body>
@@ -33,7 +33,7 @@
       <div id="main-navigation">
         <a href="{% url 'homepage' %}">
           <img class="logo"
-            {% comment %} src="{% static 'images/alejandras-food-blog-beige.png' %}" {% endcomment %}
+            src="{% static 'images/alejandras-food-blog-beige.png' %}" 
             alt="my-logo"
           />
         </a>
@@ -42,13 +42,22 @@
       <nav id="main-navigation">
         <ul>
           <li><a href="/posts">Posts</a></li>
-          <li><a href="/about">About</a></li>
         </ul>
       </nav>
     </header>
     <main>
       {% block content %}
       <h2>Welcome to my blog</h2>
+      <ul>
+        {% for post in all_posts %}
+        <li>
+          <a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a>
+          <img src="{% static 'images/{{ post.image }}' %}" />
+          <br />
+          <small>{{ post.date }}</small>
+        </li>
+        {% endfor %}  
+      </ul>
       {% endblock %}
 
       {% block css_files %} {% endblock %}

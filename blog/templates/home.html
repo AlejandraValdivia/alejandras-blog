@@ -1,28 +1,21 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
 {% load static %}
 
 {% block title %}
-<h1>About Alejandra Valdivia</h1>
-<hr />
+<h2 style="margin-top: 160px">About Alejandra Valdivia</h2>
 {% endblock %}
 
+
+{% block content %}
+<h1>This is the homepage</h1>
 <p class="page-content">
   I love picnics, hiking, camping and being in nature, I also enjoy reading,
   puzzles and anything about technology. Welcome to my blog so you can learn
   about my interests and projects that I'm currently working on.
 </p>
-
 <hr />
 
 <section>
   <h2>Recent Posts</h2>
-  {% for post in posts %}
-  <article>
-    <a href="{% url 'post-detail-page' post.slug %}">
-      <h3>{{post.title}}</h3>
-    </a>
-    <p class="page-content">{{post.excerpt}}</p>
-  </article>
-  {% endfor %}
 </section>
 {% endblock %}

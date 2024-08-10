@@ -5,20 +5,31 @@
 {% endblock %} 
 
 {% block content %}
-<h2 class="post-title">This is the All Posts page</h2>
-<p>lorem impsum lorem impsum lorem impsum lorem impsum lorem impsum lorem impsum</p>
-
+  <header id="main-navigation">
+    <h1><a href="{% url 'homepage' %}">Alejandra's Blog</h1>
+      <nav>
+        <a href="/posts">Posts</a></li>
+      </nav>
+    <a href="{% url 'homepage' %}">
+      <img class="logo"
+        src="{% static 'images/alejandras-food-blog-beige.png' %}" 
+        alt="my-logo"
+      />
+    </a>
+  </header>
+  
 <section id="all-posts">
-  <h2>All Posts</h2>
-  # wrap post in a link to detail page using PrimayKey
+<h2 class="post-title">This is the All Posts page</h2>
   <ul>
     {% for post in all_posts %}
-    <li><a href="{% url 'post-detail-page' post.slug %}">{{post.title}}</a></li>
-      
+    <li>
+      <a href="{% url 'post-detail-page' post.slug %}">{{ post.title }}</a>
+      <img src="{% static "images/"|add:post.image.url %}" alt="{{ post.title }}"/>
+      <h3><a href="mailto:alexvcodes@gmail.com"></a>{{ post.author }}</h3>
+      <p>{{ post.excerpt }}</p>
+    </li>
     {% endfor %}
   </ul>
-
   <h2>We are going to post cool stuff here</h2>
 </section>
-
 {% endblock %}
