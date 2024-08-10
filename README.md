@@ -60,4 +60,12 @@ Make a pull request with the changes you want to make.
 
 ![wireframes](./alejandras-blog-wireframe.png)
 
+## Future Plans
+
+- Add more features to the blog.
+- Add more categories to the blog.
+- Add more comments to the blog.
+- Add more users to the blog.
+- Filter by date, author, post, and category.
+
 Author: [Alejandra Valdivia](https://github.com/AlejandraValdivia)

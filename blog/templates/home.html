@@ -12,12 +12,14 @@
 
 {% block content %}
 <h1>This is the homepage</h1>
-<p class="page-content">
-  I love picnics, hiking, camping and being in nature, I also enjoy reading,
-  puzzles and anything about technology. Welcome to my blog so you can learn
-  about my interests and projects that I'm currently working on.
-</p>
-<hr />
+<div class="page-content">
+  <p id="about-me">
+    I love picnics, hiking, camping and being in nature, I also enjoy reading,
+    puzzles and anything about technology. Welcome to my blog so you can learn
+    about my interests and projects that I'm currently working on.
+  </p>
+  <hr />
+</div>
 
 <section>
   <section id="all-posts">
@@ -25,7 +27,7 @@
       <ul>
         {% for post in latest_posts %}
         <li>
-          <a href="{% url 'post-detail-page' post.slug %}">{{ post.title }}</a>
+          <a id="post-title" href="{% url 'post-detail-page' post.slug %}">{{ post.title }}</a>
           <img src="{{ post.image.url }}" alt="{{ post.title }}"/>
           <h3><a href="mailto:alexvcodes@gmail.com"></a>{{ post.author }}</h3>
           <p>{{ post.excerpt }}</p>

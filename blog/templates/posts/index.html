@@ -25,7 +25,7 @@
   <div id="form-actions" style="margin-bottom: 20px;">
     <a href="{% url 'post-create-page' %}">Create Post</a>
   </div>
-<h2 class="post-title">This is the All Posts page</h2>
+<h2>This is the All Posts page</h2>
   <ul>
     {% for post in all_posts %}
     <li class="post">
@@ -34,8 +34,8 @@
       <h3 class="post-author"><a href="mailto:alexvcodes@gmail.com"></a>{{ post.author }}</h3>
       <p>{{ post.excerpt }}</p>
       <div id="form-actions">
-        <a href="{% url 'post-update-page' slug=post.slug %}">Edit Post</a>
-        <a href="{% url 'post-delete-page' slug=post.slug %}">Delete</a>
+        <a id="form-actions" href="{% url 'post-update-page' slug=post.slug %}">Edit Post</a>
+        <a id="form-actions" href="{% url 'post-delete-page' slug=post.slug %}">Delete</a>
       </div>
     </li>
     {% endfor %}

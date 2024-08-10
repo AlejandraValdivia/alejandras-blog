@@ -31,6 +31,7 @@ a {
 img {
   max-width: 50%;
   height: auto;
+  margin: 2rem auto;
 }
 
 #main-navigation {
@@ -65,4 +66,12 @@ img {
 
 li {
   list-style: none;
+}
+
+#form-actions a {
+  padding: 10px 20px;
+  background-color: #3b0680;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
 }
