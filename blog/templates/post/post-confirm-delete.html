@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Confirm Delete</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Are you sure you want to delete "{{ post.title }}"?</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Yes, delete</button>
+        <a href="{% url 'post-detail-page' slug=post.slug %}">Cancel</a>
+    </form>
+{% endblock %}

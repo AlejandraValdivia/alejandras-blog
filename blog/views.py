@@ -1,13 +1,16 @@
 from pathlib import Path
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.http import HttpResponse
 from .models import Post, Comment, Author
+from .forms import PostForm, CommentForm
+from django.urls import reverse_lazy, reverse
+
 
 
 class HomepageView(ListView):
     model = Post
-    template_name = 'posts/index.html'
+    template_name = 'home.html'
     ordering = ['-date']
     context_object_name = 'latest_posts'
 
@@ -23,9 +26,31 @@ class AllPostsView(ListView):
     ordering = ['-date']
     context_object_name = 'all_posts'
 
+class PostCreateView(CreateView):
+    model = Post
+    template_name = 'post/post-form.html'
+    fields = ['title', 'slug', 'author', 'image', 'excerpt', 'content']
+
+    def get_success_url(self):
+        return reverse('post-detail-page', kwargs={'slug': self.object.slug})
+
+
+class PostUpdateView(UpdateView):
+    model = Post
+    template_name = 'post/post-form.html'
+    fields = ['title', 'slug', 'author', 'image', 'excerpt', 'content']
+
+    def get_success_url(self):
+        return reverse('post-detail-page', kwargs={'slug': self.object.slug})
+
+class PostDeleteView(DeleteView):
+    model = Post
+    template_name = 'post/post-confirm-delete.html'
+    success_url = reverse_lazy('posts-page')
+
 def homepage(request):
-    latests_posts = Post.objects.all().order_by('-date')[:3]
-    return render(request, 'home.html', {'latest_posts': latests_posts}) 
+    latest_posts = Post.objects.all().order_by('-date')[:3]
+    return render(request, 'home.html', {'latest_posts': latest_posts}) 
 
 
 def posts(request):  
@@ -55,6 +80,10 @@ class PostDetailView(DetailView):
 def post_detail(request, slug):
     identified_post = get_object_or_404(Post, slug=slug)
     return render(request, 'post/post-detail.html', {'post': identified_post})
+
+# def post_detail(request, pk)
+#     post = get_object_or_404(Post, pk=pk)
+#     return render(request, 'post/post-detail.html', {'post': post})
 
 def error_404_view(request, exception):
     return render(request, '404.html')

@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% load static %} 
+{% block title %}
+<title>{% if object %}Edit Post{% else %}Create Post{% endif %}</title>
+{% endblock %} 
+
+{% block content %}
+<h1>{% if object %}Edit Post{% else %}Create Post{% endif %}</h1>
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %} {{ form.as_p }} 
+   <button type="submit">
+    {% if object %}Update{% else %}Create{% endif %} Post
+  </button>
+ 
+  <button type="submit">Create Post</button>
+  {% if form.errors %}
+  <div class="form-errors">{{ form.errors }}</div>
+  {% endif %}
+
+  <a href="{% url 'homepage' %}">Cancel</a>
+</form>
+{% endblock %}

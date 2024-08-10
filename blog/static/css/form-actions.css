@@ -1,0 +1,22 @@
+
+#form-actions {
+    top: 600px;
+    margin-top: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#form-actions a {
+    padding: 10px 20px;
+    background-color: #3b0680;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+#form-actions a:hover {
+    background-color: #390281;
+}
+

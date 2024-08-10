@@ -1,29 +1,28 @@
-{% extends 'base.html' %} 
-{% load static %}
-
-{% block title %}
+{% extends 'base.html' %} {% load static %} {% block title %}
 <h1>{{post.title}}</h1>
 <hr />
-{% endblock %}
-
-{% block css_files %}
+{% endblock %} {% block css_files %}
 <link rel="stylesheet" href="{% static 'css/post-detail.css' %}" />
-{% endblock %}
+<link rel="stylesheet" href="{% static 'css/form-actions.css' %}" />
+{% endblock %} {% block content %}
 
-{% block content %}
-   <section id="summary">
-        <h2>{{post.title}}</h2>
-        <article>
-             <img src="{% static "images/"|add:post.image.url %}" alt="{{post.title}}" /> 
-            <p><a href="{% url 'homepage' %}">Back to Home</a></p> <p>{{post.author}}</p>
-            <p>{{post.content}}</p>
-            <p>{{post.date|date:"d M Y"}}</p>
-        </article>
-    </section>
+<div id="form-actions">
+  <a href="{% url 'post-delete-page' slug=post.slug %}">Delete</a>
+  <a href="{% url 'post-update-page' slug=post.slug %}">Edit Post</a>
+  <a href="{% url 'post-create-page' %}">Create Post</a>
+</div>
 
-    <main>
-        <p>{{post.excerpt}}</p>
-</main> 
 
-<p>We are going to post something here</p>
+<section id="summary">
+  <h2>{{post.title}}</h2>
+
+  <img class="post-image" src="{{ post.image.url }}" alt="{{ post.title }}"/>
+  <p><a href="{% url 'homepage' %}">Back to Home</a></p>
+  <p>{{post.author}}</p>
+  <p>{{post.date|date:"d M Y"}}</p>
+  <p>{{post.excerpt}}</p>
+  <p>{{post.content}}</p>
+
+</section>
+
 {% endblock %}

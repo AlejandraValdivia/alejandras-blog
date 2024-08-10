@@ -1,6 +1,10 @@
 {% extends 'base.html' %} 
 {% load static %}
 
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'css/homepage.css' %}" />
+{% endblock %}
+
 {% block title %}
 <h2 style="margin-top: 160px">About Alejandra Valdivia</h2>
 {% endblock %}
@@ -16,6 +20,18 @@
 <hr />
 
 <section>
-  <h2>Recent Posts</h2>
+  <section id="all-posts">
+    <h2 class="post-title">This is the Homepage</h2>
+      <ul>
+        {% for post in latest_posts %}
+        <li>
+          <a href="{% url 'post-detail-page' post.slug %}">{{ post.title }}</a>
+          <img src="{{ post.image.url }}" alt="{{ post.title }}"/>
+          <h3><a href="mailto:alexvcodes@gmail.com"></a>{{ post.author }}</h3>
+          <p>{{ post.excerpt }}</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
 </section>
 {% endblock %}
