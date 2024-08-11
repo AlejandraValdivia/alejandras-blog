@@ -10,7 +10,7 @@ from django.urls import reverse_lazy, reverse
 
 class HomepageView(ListView):
     model = Post
-    template_name = 'home.html'
+    template_name = 'blog/index.html'
     ordering = ['-date']
     context_object_name = 'latest_posts'
 
@@ -50,7 +50,7 @@ class PostDeleteView(DeleteView):
 
 def homepage(request):
     latest_posts = Post.objects.all().order_by('-date')[:3]
-    return render(request, 'home.html', {'latest_posts': latest_posts}) 
+    return render(request, 'blog/index.html', {'latest_posts': latest_posts}) 
 
 
 def posts(request):  
