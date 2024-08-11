@@ -7,17 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/png" href="" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="semantic/dist/semantic.min.css"
-    />
-    <script
-      src="https://code.jquery.com/jquery-3.1.1.min.js"
-      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-      crossorigin="anonymous"
-    ></script>
-    <script src="semantic/dist/semantic.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css" integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{% static 'app.css' %}" />
     {% block css_files %}{% endblock %}
     <link
@@ -33,7 +23,28 @@
     {% endblock %}
 
     {% block content %}
-    
+    <div class="ui secondary  menu" speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true">
+      <a hrefclass="active item" speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true" style="font-size: 16.8px;">
+        Home
+      </a>
+      <a href="/" class="item" speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true" style="font-size: 16.8px;">
+        Alejandra's Blog
+      </a>
+      <a href="/posts" class="item" speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true" style="font-size: 16.8px;">
+        Posts
+      </a>
+      <div class="right menu" speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true" style="font-size: 16.8px;">
+        <div class="item" speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true" style="font-size: 16.8px;">
+          <div class="ui icon input" speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true" style="font-size: 16.8px;">
+            <input type="text" placeholder="Search..." speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true" style="font-size: 16.8px;">
+            <i class="search link icon" speechify-initial-font-family="Icons" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true" style="font-size: 16.8px;"></i>
+          </div>
+        </div>
+        <a class="ui item" speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true" style="font-size: 16.8px;">
+          Logout
+        </a>
+      </div>
+    </div>
     <main>
       <h2>Welcome to my blog</h2>
       <p>This is where I will post my thoughts</p>
