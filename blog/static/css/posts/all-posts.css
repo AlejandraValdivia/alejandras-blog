@@ -37,16 +37,6 @@ body {
     gap: 1.5rem;
   }
 
-  li .post-title {
-    text-align: center;
-    padding: 0.5rem auto;
-    margin: 2rem;
-    font-size: 1.5rem;
-    color: #2e2e2e;
-    font-weight: bold;
-    font-family: 'Lato', sans-serif;
-}
-
   .post {
     padding: 1.5rem;
     border: 1px solid #ccc;
@@ -68,13 +58,6 @@ body {
     cursor: pointer;
   }
 
-  .post-title {
-    font-size: 1.5rem;
-    color: black;
-    margin: 0;
-    text-align: center;
-  }
-
   .post-author {
     color: #2e2e2e;
     margin: 0;
@@ -83,13 +66,15 @@ body {
     margin: 1rem 0;
   }
 
-  .post img {
+  /* .post img {
     width: 50%;
     height: auto;
     object-fit: cover;
     border-radius: 6px;
     margin: 2rem auto;
-  }
+  } */
+
+ 
 
   .post p {
     margin-bottom: 2rem;

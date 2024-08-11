@@ -25,12 +25,12 @@
   <div id="form-actions" style="margin-bottom: 20px;">
     <a href="{% url 'post-create-page' %}">Create Post</a>
   </div>
-<h2>This is the All Posts page</h2>
-  <ul>
+<h2>All Posts page</h2>
+  <ul id="all-posts">
     {% for post in all_posts %}
     <li class="post">
-      <a class="post-title" href="{% url 'post-detail-page' post.slug %}">{{ post.title }}</a>
-      <img class="post-image" src="{{ post.image.url }}" alt="{{ post.title }}"/>
+      <a id="post-title" href="{% url 'post-detail-page' post.slug %}">{{ post.title }}</a>
+      <img src="{{ post.image.url }}" alt="{{ post.title }}"/>
       <h3 class="post-author"><a href="mailto:alexvcodes@gmail.com"></a>{{ post.author }}</h3>
       <p>{{ post.excerpt }}</p>
       <div id="form-actions">

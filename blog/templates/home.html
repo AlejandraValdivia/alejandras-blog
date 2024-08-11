@@ -6,35 +6,85 @@
 {% endblock %}
 
 {% block title %}
-<h2 style="margin-top: 160px">About Alejandra Valdivia</h2>
+Homepage
 {% endblock %}
 
 
 {% block content %}
-<h1>This is the homepage</h1>
-<div class="page-content">
+<body>
+  <header id="main-navigation">
+    <h1><a href="{% url 'homepage' %}">Alejandra's Blog</a></h1>
+
+      <a href="{% url 'homepage' %}">
+        <img class="logo"
+          src="images/alejandras-food-blog-beige.png" 
+          alt="my-logo"
+        />
+      </a>
+     
+    <nav id="main-navigation">
+      <ul>
+        <li><a href="/posts">Posts</a></li>
+      </ul>
+    </nav>
+  </header>
+<section id="welcome">
+  <header>
+    <img id="logo" src="{% static 'images/alejandras-food-blog-beige.png' %}" alt="my-logo" />
+  <h2>Welcome to Alejandra's blog</h2>
+  </header>
   <p id="about-me">
-    I love picnics, hiking, camping and being in nature, I also enjoy reading,
+    Hi, I'm Alejandra. I love picnics, hiking, camping and being in nature, I also enjoy reading,
     puzzles and anything about technology. Welcome to my blog so you can learn
     about my interests and projects that I'm currently working on.
   </p>
-  <hr />
-</div>
+</section>
 
-<section>
-  <section id="all-posts">
-    <h2 class="post-title">This is the Homepage</h2>
-      <ul>
-        {% for post in latest_posts %}
-        <li>
-          <a id="post-title" href="{% url 'post-detail-page' post.slug %}">{{ post.title }}</a>
-          <img src="{{ post.image.url }}" alt="{{ post.title }}"/>
-          <h3><a href="mailto:alexvcodes@gmail.com"></a>{{ post.author }}</h3>
-          <p>{{ post.excerpt }}</p>
-        </li>
-        {% endfor %}
-      </ul>
-      <a id="form-actions" href="{% url 'post-create-page' %}">Create Post</a>
-    </section>
+<section id="latest-posts">
+  <h2 class="post-title">My Latest Posts</h2>
+    <ul>
+      {% for post in latest_posts %}
+      <li>
+        <article class="post">
+        <a id="post-title" href="{% url 'post-detail-page' post.slug %}">{{ post.title }}</a>
+        <img src="{{ post.image.url }}" alt="{{ post.title }}"/>
+        <div class="post__content">
+            <p id="post-date">{{ post.date }}</p>
+            <h4><em><a href="mailto:alexvcodes@gmail.com">{{ post.author }}</a></em></h4>
+            <p>{{ post.excerpt }}</p>
+        </div>
+        </article>
+      </li>
+      {% endfor %}
+    </ul>
+    <a id="form-actions" href="{% url 'post-create-page' %}">Create Post</a>
+</section>
+
+<section id="about">
+<h2>About Me</h2>
+  <p>
+    I'm Alejandra. I'm a full-stack developer and love building apps and websites.I love picnics, hiking, camping and being in nature, I also enjoy reading,
+    puzzles and anything about technology. Welcome to my blog so you can learn
+    about my interests and projects that I'm currently working on.
+  </p>
+</section>
+
+<section id="latest-comments">
+  <h2 class="comment-title">My Latest Comments</h2>
+    <ul>
+      {% for comment in latest_comments %}
+      <li>
+        <article class="comment">
+        <a id="comment-title" href="{% url 'post-detail-page' comment.post.slug %}">{{ comment.post.title }}</a>
+        <div class="comment__content">
+          <h3>{{ comment.post.title }}</h3>
+            <p id="comment-date">{{ comment.date }}</p>
+            <h4><em>{{ comment.author }}</em></h4>
+            <p>{{ comment.content }}</p>
+        </div>
+        </article>
+      </li>
+      {% endfor %}
+    </ul>
 </section>
 {% endblock %}

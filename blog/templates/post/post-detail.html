@@ -16,7 +16,7 @@
 <section id="summary">
   <h2>{{post.title}}</h2>
 
-  <img class="post-image" src="{{ post.image.url }}" alt="{{ post.title }}"/>
+  <img src="{{ post.image.url }}" alt="{{ post.title }}"/>
   <p><a href="{% url 'homepage' %}">Back to Home</a></p>
   <h3><strong>{{post.author}}</strong></h3>
   <p>{{post.date|date:"d M Y"}}</p>
