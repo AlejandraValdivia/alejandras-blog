@@ -23,6 +23,7 @@
     {% endblock %}
 
     {% block content %}
+    <body>
     <div class="ui secondary  menu" speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true">
       <a hrefclass="active item" speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true" style="font-size: 16.8px;">
         Home
@@ -46,16 +47,14 @@
       </div>
     </div>
     <main>
-      <h2>Welcome to my blog</h2>
-      <p>This is where I will post my thoughts</p>
-      {% endblock %}
+    {% endblock %}
 
     {% block footer %} 
-     <footer id="footer">
+     {% comment %} <footer id="footer">
         <div class="container">
         <a class="footer-link" href="https://github.com/AlejandraValdivia" target="_blank"><p>Copyright &copy; 2024 Alejandra Valdivia</p></a>
         </div>
-     </footer>
+     </footer> {% endcomment %}
     {% endblock %}
     </main>
   </body>

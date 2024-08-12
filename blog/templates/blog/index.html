@@ -11,7 +11,8 @@ Homepage
 
 
 {% block content %}
-<body>
+{% include 'base.html' %}
+{% comment %} <body>
   <div class="ui secondary  menu" speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true">
     <a href="/" class="active item" speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true" style="font-size: 16.8px;">
       Home
@@ -33,7 +34,7 @@ Homepage
         Logout
       </a>
     </div>
-  </div>
+  </div> {% endcomment %}
 <section id="welcome">
   <header>
     <img id="logo" src="{% static 'images/alejandras-food-blog-beige.png' %}" alt="my-logo" />
@@ -46,17 +47,7 @@ Homepage
   <h2 class="post-title">My Latest Posts</h2>
     <ul>
       {% for post in latest_posts %}
-      <li>
-        <article class="post">
-        <a id="post-title" href="{% url 'post-detail-page' post.slug %}">{{ post.title }}</a>
-        <img src="{{ post.image.url }}" alt="{{ post.title }}"/>
-        <div class="post__content">
-            <p id="post-date">{{ post.date }}</p>
-            <h4><em><a href="mailto:alexvcodes@gmail.com">{{ post.author }}</a></em></h4>
-            <p>{{ post.excerpt }}</p>
-        </div>
-        </article>
-      </li>
+      {% include 'includes/post.html' %}
       {% endfor %}
     </ul>
     <a id="form-actions" href="{% url 'post-create-page' %}">Create Post</a>
