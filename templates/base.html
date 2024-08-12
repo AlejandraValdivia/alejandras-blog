@@ -1,5 +1,7 @@
 {% load static %}
 
+{% block head %} 
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,8 +20,7 @@
 
     <title>{% block title %}{% endblock %}</title>
  
-    {% block head %} 
-  
+  </head>
     {% endblock %}
 
     {% block content %}
@@ -47,14 +48,6 @@
       </div>
     </div>
     <main>
-    {% endblock %}
-
-    {% block footer %} 
-     {% comment %} <footer id="footer">
-        <div class="container">
-        <a class="footer-link" href="https://github.com/AlejandraValdivia" target="_blank"><p>Copyright &copy; 2024 Alejandra Valdivia</p></a>
-        </div>
-     </footer> {% endcomment %}
     {% endblock %}
     </main>
   </body>

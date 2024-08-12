@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block css_files %}
+<link rel="stylesheet" href="{% static 'css/post.css' %}" />
 <link rel="stylesheet" href="{% static 'css/homepage.css' %}" />
 {% endblock %}
 
@@ -12,34 +13,12 @@ Homepage
 
 {% block content %}
 {% include 'base.html' %}
-{% comment %} <body>
-  <div class="ui secondary  menu" speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true">
-    <a href="/" class="active item" speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true" style="font-size: 16.8px;">
-      Home
-    </a>
-    <a href="/" class="item" speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true" style="font-size: 16.8px;">
-      Alejandra's Blog
-    </a>
-    <a href="/posts" class="item" speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true" style="font-size: 16.8px;">
-      Posts
-    </a>
-    <div class="right menu" speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true" style="font-size: 16.8px;">
-      <div class="item" speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true" style="font-size: 16.8px;">
-        <div class="ui icon input" speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true" style="font-size: 16.8px;">
-          <input type="text" placeholder="Search..." speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true" style="font-size: 16.8px;">
-          <i class="search link icon" speechify-initial-font-family="Icons" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true" style="font-size: 16.8px;"></i>
-        </div>
-      </div>
-      <a class="ui item" speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true" style="font-size: 16.8px;">
-        Logout
-      </a>
-    </div>
-  </div> {% endcomment %}
+<body>
+
 <section id="welcome">
   <header>
     <img id="logo" src="{% static 'images/alejandras-food-blog-beige.png' %}" alt="my-logo" />
   <h2>Welcome to Alejandra's blog</h2>
-  <h3>This is the blog/index.html template</h3>
   </header>
 </section>
 
@@ -50,7 +29,7 @@ Homepage
       {% include 'includes/post.html' %}
       {% endfor %}
     </ul>
-    <a id="form-actions" href="{% url 'post-create-page' %}">Create Post</a>
+    <a id="button" href="{% url 'post-create-page' %}">Create Post</a>
 </section>
 
 <section id="about">
@@ -80,4 +59,5 @@ Homepage
       {% endfor %}
     </ul>
 </section>
+{% include 'includes/footer.html' %}
 {% endblock %}

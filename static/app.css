@@ -72,17 +72,34 @@ li {
   list-style: none;
 }
 
-#form-actions a {
-  padding: 10px 20px;
-  background-color: #3b0680;
+a#button {
+  background-color: #390281;
   color: white;
+  padding: 0.5rem;
   border-radius: 5px;
+  border: 1px solid #390281;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  font: inherit;
+  margin: 1rem;
   text-decoration: none;
+  display: inline-block;
 }
 
-#form-actions a:hover {
-  background-color: #390281;
+a#button:hover,
+a#button:active {
+  background-color: #cf79f1;
+  color: white;
+  border: transparent;
 }
+
+#form-actions {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 3rem;
+}
+
 
 #footer {
   background-color: #390281;
