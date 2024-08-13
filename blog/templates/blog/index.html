@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block css_files %}
+<link rel="stylesheet" href="{% static 'css/app.css' %}" />
 <link rel="stylesheet" href="{% static 'css/post.css' %}" />
 <link rel="stylesheet" href="{% static 'css/homepage.css' %}" />
 {% endblock %}
@@ -12,11 +13,10 @@ Homepage
 
 
 {% block content %}
-{% include 'base.html' %}
 <body>
 
 <section id="welcome">
-  <header>
+  <header id="welcome-header">
     <img id="logo" src="{% static 'images/alejandras-food-blog-beige.png' %}" alt="my-logo" />
   <h2>Welcome to Alejandra's blog</h2>
   </header>

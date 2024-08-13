@@ -1,25 +1,61 @@
-{% extends 'base.html' %} {% load static %} 
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'css/post.css' %}" />
+<link rel="stylesheet" href="{% static 'css/post-form.css' %}" />
+{% endblock %}
+
 {% block title %}
 <title>{% if object %}Edit Post{% else %}Create Post{% endif %}</title>
-{% endblock %} 
+{% endblock %}
 
 {% block content %}
-<h1>{% if object %}Edit Post{% else %}Create Post{% endif %}</h1>
-<form method="POST" enctype="multipart/form-data">
-  {% csrf_token %} {{ form.as_p }} 
-   <button type="submit">
-    {% if object %}Update{% else %}Create{% endif %} Post
-  </button>
- 
-  <button type="submit">Create Post</button>
-  {% if form.errors %}
-  <div class="form-errors">{{ form.errors }}</div>
-  {% endif %}
-
-  <a href="{% url 'homepage' %}">Cancel</a>
-</form>
-
+<div class="form-container">
+  <h1 class="ui header">{% if object %}Edit Post{% else %}Create Post{% endif %}</h1>
+  
+  <form class="ui form" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    {% for field in form %}
+      <div class="field">
+        {{ field.label_tag }}
+        {{ field }}
+        {% if field.help_text %}
+          <small class="ui pointing label">{{ field.help_text }}</small>
+        {% endif %}
+        {% for error in field.errors %}
+          <div class="ui pointing red basic label">{{ error }}</div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+    
+    <div class="ui buttons">
+      <button type="submit" class="ui primary button">
+        {% if object %}Update{% else %}Create{% endif %} Post
+      </button>
+      <div class="or"></div>
+      {% if object %}
+        <a href="{% url 'post-detail-page' object.slug %}" class="ui button">Cancel</a>
+      {% else %}
+        <a href="{% url 'homepage' %}" class="ui button">Cancel</a>
+      {% endif %}
+    </div>
+    
+    {% if form.errors %}
+    <div class="ui error message">
+      <div class="header">Please correct the errors below:</div>
+      <ul class="list">
+        {% for field in form %}
+          {% for error in field.errors %}
+            <li>{{ error }}</li>
+          {% endfor %}
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </form>
+</div>
 
 {% include 'includes/footer.html' %}
-
 {% endblock %}

@@ -7,9 +7,7 @@
 {% endblock %} 
 
 {% block content %}
-{% include 'base.html' %}
-  
-
+<body>  
 <section id="all-posts">
   <div id="form-actions" style="margin-bottom: 20px;">
     <a href="{% url 'post-create-page' %}">Create Post</a>
@@ -23,7 +21,7 @@
       <h3 class="post-author"><a href="mailto:alexvcodes@gmail.com"></a>{{ post.author }}</h3>
       <p>{{ post.excerpt }}</p>
       <div id="form-actions">
-        <a id="button" href="{% url 'post-update-page' slug=post.slug %}">Edit Post</a>
+        <a id="button" href="{% url 'post-update-page' slug=post.slug %}">Edit</a>
         <a id="button" href="{% url 'post-delete-page' slug=post.slug %}">Delete</a>
       </div>
     </li>

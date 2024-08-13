@@ -1,7 +1,5 @@
 {% load static %}
 
-{% block head %} 
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,45 +8,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/png" href="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css" integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{% static 'app.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/post.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}" />
     {% block css_files %}{% endblock %}
-    <link
-      rel="shortcut icon"
-      type="image/png"
-      href="{% static 'images/favicon.ico' %}"
-    />
-
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}" />
     <title>{% block title %}{% endblock %}</title>
- 
   </head>
-    {% endblock %}
 
-    {% block content %}
-    <body>
-    <div class="ui secondary  menu" speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true">
-      <a hrefclass="active item" speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true" style="font-size: 16.8px;">
-        Home
-      </a>
-      <a href="/" class="item" speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true" style="font-size: 16.8px;">
-        Alejandra's Blog
-      </a>
-      <a href="/posts" class="item" speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true" style="font-size: 16.8px;">
-        Posts
-      </a>
-      <div class="right menu" speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true" style="font-size: 16.8px;">
-        <div class="item" speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true" style="font-size: 16.8px;">
-          <div class="ui icon input" speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true" style="font-size: 16.8px;">
-            <input type="text" placeholder="Search..." speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true" style="font-size: 16.8px;">
-            <i class="search link icon" speechify-initial-font-family="Icons" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true" style="font-size: 16.8px;"></i>
+  <body>
+    <div class="ui secondary  menu">
+      <a href="/" class="item">Home</a>
+      <a href="/" class="item">Alejandra's Blog</a>
+      <a href="/posts" class="item">Posts</a>
+      <div class="right menu">
+        <div class="item">
+          <div class="ui icon input">
+            <input type="text" placeholder="Search...">
+            <i class="search link icon"></i>
           </div>
         </div>
-        <a class="ui item" speechify-initial-font-family="Lato, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif" speechify-initial-font-size="14px" speechify-initial-font-size-modified="true" style="font-size: 16.8px;">
-          Logout
-        </a>
+        <a class="ui item">Logout</a>
       </div>
     </div>
     <main>
-    {% endblock %}
+      {% block content %}
+      {% endblock %}
     </main>
   </body>
 </html>
