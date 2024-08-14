@@ -17,7 +17,7 @@ Homepage
 
 <section id="welcome">
   <header id="welcome-header">
-    <img id="logo" src="{% static 'images/alejandras-food-blog-beige.png' %}" alt="my-logo" />
+    <img id="logo" src="{% static 'images/alejandra-valdivia-headshot.jpeg' %}" alt="my-logo" />
   <h2>Welcome to Alejandra's blog</h2>
   </header>
 </section>
@@ -29,7 +29,6 @@ Homepage
       {% include 'includes/post.html' %}
       {% endfor %}
     </ul>
-    <a id="button" href="{% url 'post-create-page' %}">Create Post</a>
 </section>
 
 <section id="about">
@@ -41,23 +40,6 @@ Homepage
   </p>
 </section>
 
-<section id="latest-comments">
-  <h2 class="comment-title">My Latest Comments</h2>
-    <ul>
-      {% for comment in latest_comments %}
-      <li>
-        <article class="comment">
-        <a id="comment-title" href="{% url 'post-detail-page' comment.post.slug %}">{{ comment.post.title }}</a>
-        <div class="comment__content">
-          <h3>{{ comment.post.title }}</h3>
-            <p id="comment-date">{{ comment.date }}</p>
-            <h4><em>{{ comment.author }}</em></h4>
-            <p>{{ comment.content }}</p>
-        </div>
-        </article>
-      </li>
-      {% endfor %}
-    </ul>
-</section>
+
 {% include 'includes/footer.html' %}
 {% endblock %}

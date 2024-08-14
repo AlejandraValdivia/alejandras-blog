@@ -100,32 +100,6 @@ a#button:active {
   margin-top: 3rem;
 }
 
-
-#footer {
-  background-color: #390281;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 2rem;
-}
-
-#footer h2 {
-  margin: 0;
-  font-size: 1.5rem;
-  color: white;
-}
-#footer a {
-  color: white;
-}
-
-#footer a:hover,
-#footer a:active {
-  color: #cf79f1;
-}
-
-#footer p {
-  margin: 0;
-  color: white;
+#form-actions a {
+  color: #390281;
 }

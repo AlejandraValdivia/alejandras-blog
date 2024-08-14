@@ -1,34 +1,35 @@
 {% extends 'base.html' %} 
 {% load static %} 
-
 {% block css_files %}
-<link rel="stylesheet" href="{% static 'css/post.css' %}" />
+<link rel="stylesheet" href="{% static 'css/app.css' %}" />
 <link rel="stylesheet" href="{% static 'css/post-detail.css' %}" />
-{% endblock %} 
-
-{% block title %}
-  <title>{{post.title}}</title> 
-{% endblock %} 
-
-{% block content %}
+{% endblock %} {% block title %}
+<title>{{post.title}}</title>
+{% endblock %} {% block content %}
 
 <body>
-<div id="form-actions">
-  <a id="button" href="{% url 'post-delete-page' slug=post.slug %}">Delete</a>
-  <a id="button" href="{% url 'post-update-page' slug=post.slug %}">Edit Post</a>
-  <a id="button" href="{% url 'post-create-page' %}">Create Post</a>
-</div>
+  <div id="form-actions">
+    <a id="button" href="{% url 'post-delete-page' slug=post.slug %}">Delete</a>
+    <a id="button" href="{% url 'post-update-page' slug=post.slug %}"
+      >Edit Post</a
+    >
+    <a id="button" href="{% url 'post-create-page' %}">Create Post</a>
+  </div>
 
-<section id="summary">
-  <h2>{{post.title}}</h2>
-  <img src="{{ post.image.url }}" alt="{{ post.title }}" />
-  <h3><strong>{{post.author}}</strong></h3>
-  <p>{{post.date|date:"d M Y"}}</p>
-  <p>{{post.excerpt}}</p>
-  <p>{{post.content}}</p>
-  <p><a id="button" href="{% url 'homepage' %}">Back to Home</a></p>
-</section>
+  <section id="summary">
+    <h2>{{post.title}}</h2>
+    <article>
+      <img src="{{ post.image.url }}" alt="{{ post.title }}" />
+      <a href="https://github.com/AlejandraValdivia" target="_blank">
+        <h3 class="footer-link">{{post.author}}</h3>
+      </a>
+      <div><time>{{post.date|date:"d M Y"}}</time></div>
+    </article>
+  </section>
 
-
-{% endblock %} 
-
+  <main>
+    <p>{{post.content | linebreaks}}</p>
+    <p><a id="post-detail-btn" href="{% url 'homepage' %}">Back to Home</a></p>
+  </main>
+  {% include "includes/footer.html" %} {% endblock %}
+</body>

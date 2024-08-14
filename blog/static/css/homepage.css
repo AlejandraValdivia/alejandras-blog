@@ -20,7 +20,6 @@
   border: 5px solid white;
   border-radius: 12px;
   background-color: #ffe1bf;
-  transform: rotateZ(-5deg);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   margin-bottom: 2rem; 
 }
@@ -76,7 +75,6 @@
   font-size: 1.5rem;
   color: #353535;
 }
-
 
 a#button {
   background-color: #390281;

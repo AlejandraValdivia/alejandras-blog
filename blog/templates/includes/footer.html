@@ -1,6 +1,12 @@
-{% load static %}
+{% load static %} 
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'css/app.css' %}" />
+<link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+{% endblock %}
+
+{% block content %}
 <footer id="footer">
-  <div class="container">
+  <div class="container" style="text-align: center">
     <a
       class="footer-link"
       href="https://github.com/AlejandraValdivia"
@@ -9,3 +15,4 @@
     >
   </div>
 </footer>
+{% endblock %}
