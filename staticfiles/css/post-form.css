@@ -1,0 +1,24 @@
+.form-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  }
+
+  .field {
+    margin-bottom: 1rem;
+  }
+
+  .help-text {
+    color: #666;
+    font-size: 0.85rem;
+    margin-left: 0.5rem;
+  }
+
+  .error-message {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin-left: 0.5rem;
+  }

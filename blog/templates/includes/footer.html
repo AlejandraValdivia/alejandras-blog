@@ -1,18 +1,13 @@
-{% load static %} 
-{% block css_files %}
+{% load static %} {% block css_files %}
 <link rel="stylesheet" href="{% static 'css/app.css' %}" />
 <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
-{% endblock %}
-
-{% block content %}
+{% endblock %} {% block content %}
 <footer id="footer">
-  <div class="container" style="text-align: center">
-    <a
-      class="footer-link"
-      href="https://github.com/AlejandraValdivia"
-      target="_blank"
-      ><p>Copyright &copy; 2024 Alejandra Valdivia</p></a
-    >
-  </div>
+  <a
+    class="footer-link"
+    href="https://github.com/AlejandraValdivia"
+    target="_blank"
+    ><p>Copyright &copy; 2024 Alejandra Valdivia</p></a
+  >
 </footer>
 {% endblock %}

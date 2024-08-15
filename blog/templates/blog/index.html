@@ -2,9 +2,9 @@
 {% load static %}
 
 {% block css_files %}
-<link rel="stylesheet" href="{% static 'blog/static/css/app.css' %}" />
-<link rel="stylesheet" href="{% static 'staticfiles/css/post.css' %}" />
-<link rel="stylesheet" href="{% static 'staticfiles/css/homepage.css' %}" />
+<link rel="stylesheet" href="{% static 'css/app.css' %}" />
+<link rel="stylesheet" href="{% static 'css/post.css' %}" />
+<link rel="stylesheet" href="{% static 'css/homepage.css' %}" />
 {% endblock %}
 
 {% block title %}
@@ -26,7 +26,16 @@ Homepage
   <h2 class="post-title">My Latest Posts</h2>
     <ul>
       {% for post in latest_posts %}
-      {% include 'includes/post.html' %}
+      <li class="post">
+        <a id="post-title" href="{% url 'post-detail-page' post.slug %}">{{ post.title }}</a>
+        <img src="{{ post.image.url }}" alt="{{ post.title }}"/>
+        <h3 class="post-author"><a href="mailto:alexvcodes@gmail.com"></a>{{ post.author }}</h3>
+        <p>{{ post.excerpt }}</p>
+        <div id="form-actions">
+          <a id="button" href="{% url 'post-update-page' slug=post.slug %}">Edit</a>
+          <a id="button" href="{% url 'post-delete-page' slug=post.slug %}">Delete</a>
+        </div>
+      </li>
       {% endfor %}
     </ul>
 </section>
