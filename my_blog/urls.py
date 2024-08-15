@@ -26,10 +26,10 @@ from django.conf import settings
 # ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),  # This should be the first pattern
-    path('', include('blog.urls')),  # Your app URLs
-] 
+    path('admin/', admin.site.urls),  
+    path('', include('blog.urls')) 
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
+  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+    
