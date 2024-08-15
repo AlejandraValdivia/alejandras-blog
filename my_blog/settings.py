@@ -100,15 +100,15 @@ DATABASES = {
     )
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'blogdb',
-#         'USER': 'alex',
-#         'PASSWORD': 'myblog',
-#         'HOST': 'localhost'
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'blogdb',
+        'USER': 'alex',
+        'PASSWORD': 'myblog',
+        'HOST': 'localhost'
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
