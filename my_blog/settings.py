@@ -32,8 +32,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 
 ALLOWED_HOSTS = [
-     "alejandras-blog.onrender.com", 
-    # "https://alejandras-blog.onrender.com",
+    "alejandras-blog.onrender.com", 
+    "https://alejandras-blog.onrender.com",
     'localhost', '127.0.0.1'
 ]
 
@@ -61,6 +61,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# Simplified static file serving.
+# https://whitenoise.evans.io/en/stable/django.html#django-middleware
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = 'my_blog.urls'
 
@@ -148,6 +152,8 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Default primary key field type

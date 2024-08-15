@@ -28,20 +28,22 @@ body {
 
 #summary article {
   position: absolute;
-  top: 10rem;
+  top: 3rem;
   right: 3rem;
   padding: 1rem 2rem;
   border-radius: 12px;
   text-align: right;
   color: white;
+  width: 40%;
+  height: 100%;
 }
 
 #summary article img {
-  width: 12rem;
-  height: 12rem;
+  width: 100%; !important
+  height: fit-content;
   border-radius: 12px;
   border: 5px solid white;
-  margin: 6rem 0 2rem;
+  margin: 0;
 }
 
 #summary address {

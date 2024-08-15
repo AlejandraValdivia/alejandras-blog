@@ -2,7 +2,9 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
 from .models import Post, Comment, Author
+import logging
 
+logger = logging.getLogger(__name__)
 
 class PostAdmin(admin.ModelAdmin):
     list_filter = ('title', 'author', 'date')
@@ -15,11 +17,8 @@ class PostAdmin(admin.ModelAdmin):
             author, created = Author.objects.get_or_create(username=request.user.username)
             obj.author = author
         obj.save()
+        logger.info(f'Post "{obj.title}" saved by {obj.author.username}')
 
-
-
-
-  
 
 admin.site.register(Author)
 admin.site.register(Post, PostAdmin)
