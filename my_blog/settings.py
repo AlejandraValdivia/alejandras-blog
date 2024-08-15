@@ -34,7 +34,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 ALLOWED_HOSTS = [
     "alejandras-blog.onrender.com", 
     "https://alejandras-blog.onrender.com",
-    'localhost', '127.0.0.1'
+    # 'localhost', '127.0.0.1'
 ]
 
 
@@ -95,8 +95,7 @@ WSGI_APPLICATION = 'my_blog.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default=DATABASE_URL,
-        conn_max_age=600
+        default=os.getenv('DATABASE_URL')
     )
 }
 
