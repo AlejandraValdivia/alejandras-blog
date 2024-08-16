@@ -4,6 +4,9 @@ This is a blog by Alejandra Valdivia about her interests such as software engine
 
 
 ![alejandras-blog](staticfiles/images/alejandras-blog-django-homepage.png)
+![alejandras-blog-posts](staticfiles/images/screencapture-127-0-0-1-8000-posts-2024-08-16-13_48_47.png)
+![alejandras-blog-single-post](staticfiles/images/single-post-page-screenshot.png)
+![alejandras-blog-crud-functionality](staticfiles/images/screencapture-127-0-0-1-8000-posts-edit-learn-python-2024-08-16-13_53_00.png)
 
 ## Technologies used
 
@@ -39,7 +42,7 @@ Make a pull request with the changes you want to make.
 
 ## ERD
 
-![erd](staticfiles/images/alejandras-blog-erd.png)
+![erd](staticfiles/images/python-blog.jpg)
 
 ### Authors
 
