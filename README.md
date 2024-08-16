@@ -2,6 +2,9 @@
 
 This is a blog by Alejandra Valdivia about her interests such as software engineering, WordPress development, PHP, SEO, Web Design, hiking, camping, and more. [Alejandra's Blog](https://accelerate.hyperlinkweb.dev/blog/).
 
+
+![alejandras-blog](staticfiles/images/alejandras-blog-django-homepage.png)
+
 ## Technologies used
 
 - Backend: Django, Python, and PostgreSQL
@@ -36,7 +39,7 @@ Make a pull request with the changes you want to make.
 
 ## ERD
 
-![erd](./python-blog.jpg)
+![erd](staticfiles/images/alejandras-blog-erd.png)
 
 ### Authors
 
@@ -56,7 +59,7 @@ Make a pull request with the changes you want to make.
 
 ## Wireframes
 
-![wireframes](./alejandras-blog-wireframe.png)
+![wireframes](staticfiles/images/alejandras-blog-wireframe.png)
 
 ## Future Plans
 

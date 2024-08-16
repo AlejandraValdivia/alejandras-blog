@@ -13,8 +13,19 @@ import os
 from pathlib import Path
 import dj_database_url
 from dotenv import load_dotenv
+import environ
 
 load_dotenv()
+
+env = environ.Env()
+environ.Env.read_env()  # Reads the .env file
+
+
+
+
+print("DATABASE NAME", os.getenv("DB_NAME"))
+
+print("DATABASE HOST", os.getenv("DB_HOST"))
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DEBUG')
@@ -34,7 +45,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 ALLOWED_HOSTS = [
     "alejandras-blog.onrender.com", 
     "https://alejandras-blog.onrender.com",
-    # 'localhost', '127.0.0.1'
+    'localhost', '127.0.0.1'
 ]
 
 
@@ -101,27 +112,45 @@ WSGI_APPLICATION = 'my_blog.wsgi.application'
 #     )
 # }
 
+
+# 
+
+
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'blogdb',
-#         'USER': 'alex',
-#         'PASSWORD': 'myblog',
-#         'HOST': 'localhost'
+#         'NAME': env('DB_NAME'),
+#         'USER': env('DB_USER'),
+#         'PASSWORD': env('DB_PASSWORD'),
+#         'HOST': env('DB_HOST'),
+#         'PORT': env('DB_PORT', default='5432'),
 #     }
 # }
+
+
 
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT', '5432'),
+        'NAME': 'blogdb',
+        'USER': 'alex',
+        'PASSWORD': 'myblog',
+        'HOST': 'localhost'
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.getenv('DB_NAME'),
+#         'USER': os.getenv('DB_USER'),
+#         'PASSWORD': os.getenv('DB_PASSWORD'),
+#         'HOST': os.getenv('DB_HOST'),
+#         'PORT': os.getenv('DB_PORT', '5432'),
+#     }
+# }
 
 
 
