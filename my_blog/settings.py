@@ -21,9 +21,6 @@ load_dotenv()
 env = Env()
  # Reads the .env file
 
-env.read_env()
-
-
 
 
 
@@ -118,7 +115,7 @@ DATABASES = {
 }
 
 
-
+# 
 
 
 # DATABASES = {
