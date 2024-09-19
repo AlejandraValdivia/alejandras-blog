@@ -10,15 +10,19 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
-from pathlib import Path
 import dj_database_url
+from environ import Env
 from dotenv import load_dotenv
-import environ
+
+from pathlib import Path
 
 load_dotenv()
 
-env = environ.Env()
-environ.Env.read_env()  # Reads the .env file
+env = Env()
+ # Reads the .env file
+
+env.read_env()
+
 
 
 
@@ -45,7 +49,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 ALLOWED_HOSTS = [
     "alejandras-blog.onrender.com", 
     "https://alejandras-blog.onrender.com",
-    'localhost', '127.0.0.1'
+    # 'localhost', '127.0.0.1'
 ]
 
 
@@ -105,15 +109,16 @@ WSGI_APPLICATION = 'my_blog.wsgi.application'
 
 
 
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         # Replace this value with your local database's connection string.
-#         default=os.getenv('DATABASE_URL')
-#     )
-# }
+DATABASES = {
+    'default': dj_database_url.config(
+        # Replace this value with your local database's connection string.
+        default=DATABASE_URL,
+        conn_max_age=600
+    )
+}
 
 
-# 
+
 
 
 # DATABASES = {
@@ -130,15 +135,15 @@ WSGI_APPLICATION = 'my_blog.wsgi.application'
 
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'blogdb',
-        'USER': 'alex',
-        'PASSWORD': 'myblog',
-        'HOST': 'localhost'
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'blogdb',
+#         'USER': 'alex',
+#         'PASSWORD': 'myblog',
+#         'HOST': 'localhost'
+#     }
+# }
 
 
 # DATABASES = {
